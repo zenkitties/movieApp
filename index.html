@@ -1,0 +1,143 @@
+<html ng-app="app">
+    
+<head>
+    <title>Movie List Creator</title>
+    
+
+    
+    <!--=================Bootstraps CSS Files=================-->
+    <link href="scripts/css/bootstrap.min.css" rel="stylesheet">
+    <link href="scripts/css/bootstrap-theme.min.css" rel="stylesheet">
+    
+    <!--=================Custom CSS Files====================-->
+    <link href="styles.css" rel="stylesheet">
+</head>
+    <body>
+
+
+        
+        
+        
+        
+        <header>
+            <h1>Javascript 1 Movie Form In AngularJS!</h1>
+        </header>
+        
+<div class="container col-md-12" ng-controller="MovieController">
+        
+            <div class="col-md-12" id="moviecontainer">
+                
+                <div class="col-md-3" id="preview">
+                    <h2>Movie Adding Preview</h2><br />
+                    
+                    <p>Movie Title: <strong ng-bind="movieAdd.name"></strong></p>
+                    <p>Time Length: <strong ng-bind="movieAdd.length"></strong> minutes long.</p>
+                    <p>Year Released: <strong ng-bind="movieAdd.year"></strong></p>
+                    <p>Genre: <strong ng-bind="movieAdd.genre"></strong></p>
+                    <p>Description: <strong ng-bind="movieAdd.desc"></strong></p>
+                    
+                    
+                
+                </div><!--left side preview-->
+                
+<!--==================================Movie Form Beginning======================================-->
+                
+            <div class="col-md-5" id="movieform">
+                <form name="movieForm" novalidate>
+                    <div>
+                        <strong>Movie Title:</strong><input ng-model="movieAdd.name" name="name" class="form-control" type="text" placeholder="movie name here.." required />
+                    </div><br /><!--movie title-->
+                    <div>
+                        <strong>Title Length:</strong><input ng-model="movieAdd.length" name="length" class="form-control" type="text" placeholder="length of movie.." required />
+                    </div><br /><!--movie title-->
+                    <div>
+                        <strong>Year Created:</strong><input class="form-control" name="year" ng-model="movieAdd.year" type="number" placeholder="yyyy.." min="1900" max="2014"  required /></div><br /><!--year created-->
+                    <div>
+                        <strong>Genre:</strong><br />
+                            <input type="radio" name="genre" ng-model="movieAdd.genre" value="comedy" checked>Comedy<br />
+                            <input type="radio" name="genre" ng-model="movieAdd.genre" value="action" checked>Action<br />
+                            <input type="radio" name="genre" ng-model="movieAdd.genre" value="horror" checked>Horror<br />
+                            <input type="radio" name="genre" ng-model="movieAdd.genre" value="drama" checked>Drama<br />
+                    </div><br /><!--genre-->
+                    <div>
+                        <strong>Description:</strong><textarea name="message" ng-model="movieAdd.desc" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <div class="clearfix"></div><!--clear fix-->
+                    <div>movieForm is {{movieForm.$valid}}</div>
+                    <div>
+                        <button type="submit" value="submit" class="btn btn-primary" ng-disabled="movieForm.$invalid" ng-click="submitMovie()">Submit</button>
+                        <button class="btn btn-danger" ng-click="clearForm()">Clear Form</button>    
+                    </div><br />
+                </form>                
+                
+            </div><!--right side movie form-->
+<!--======================================Movie Form Ending==========================================-->
+                
+                
+            <div class="col-md-3" id="movieselect">
+                <label for="searchbar" class="control-label">Search: <input class="form-control" type="text" name="search" ng-model="search.name" />
+                <aside>
+                    <h2 ng-click="names.name | orderBy: name">Movie Selection</h2>
+                    <ul id="movielist">
+                        <li ng-repeat="names in newMovie | filter: search"><button class="btn btn-success" ng-click="showPopup(names)">{{ names.name }}</button></li>
+                    </ul>
+                </aside>
+                
+
+            </div><!--movie selection list-->
+                
+<!--=============================Popup Box with Descriptions of Movies=======================-->                
+                
+            <div id="description" ng-show="isPopupVisible">
+                <button class="btn-xs btn-danger pull-right" ng-click="closePopup()">X</button><br />
+                <h3>{{ selectedMovie.name }}</h3><hr />
+                <p><strong>Time Length: </strong> {{ selectedMovie.length }} minutes.</p>
+                <p><strong>Year Created: </strong> {{ selectedMovie.year }}</p>
+                <p><strong>Genre: </strong> {{ selectedMovie.genre }}</p>
+                <p><strong>Movie Description: </strong> {{ selectedMovie.desc }}</p><hr />
+                <button class="btn btn-primary pull-right" ng-click="closePopup()">Close</button>
+            </div><!--popup box with information-->
+<!--===========================End of Popup Box with Descriptions==============================-->
+    
+
+                
+        </div><!--moviecontainer-->
+    
+
+
+
+        
+        
+</div><!--full container-->
+        
+       <div class="clearfix"></div>
+    
+    <footer id="copyright">
+
+        <p>&copy; Copyright <a href="http://zenkitties.pw">Zen Kitties</a> 2014.</p>
+        
+    </footer><!--Copyright container-->
+
+        
+
+        
+        
+        
+        
+
+        
+        <!--==================Main Javascripts============--->
+        <script type="text/javascript" src="scripts/js/angular.min.js"></script>
+        <script type="text/javascript" src="scripts/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="scripts/js/bootstrap.min.js"></script>
+        
+        <!--<script type="text/javascript" src="scripts/js/angular.min.js.map"></script>-->
+        
+        
+        <!--==================Custom Javascript Files============-->
+        <script type="text/javascript" src="app.js"></script>
+        
+
+             
+    </body><!--the body of the beast -->
+</html>

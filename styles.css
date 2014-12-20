@@ -1,0 +1,149 @@
+/*========================================================================
+    The General Custom Style Sheet Stuff
+========================================================================*/
+
+
+body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background: #333;
+    background-size:100% 100%;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* the hovering affect of links */
+a:hover {
+    text-decoration: none;
+}
+
+/* this is going to be the container styles*/
+.container {
+    padding: 20px 10px;
+    background: #333;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+
+hr {
+    color: #fff;
+}
+
+/*=============================================================================
+    Movie List Styles
+=============================================================================*/
+
+#movielist {
+    list-style: none;
+    text-align: left;
+    padding: 20px 10px 0 0;
+}
+
+#movielist li {
+    margin: 5px 0;
+
+}
+
+#moviecontainer {
+    text-align: center;
+}
+
+#movieform {
+    background: #666;
+    font-size: 16px;
+    padding: 20px 10px 0 10px;
+    height: auto;
+    width: 40%;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    position: center;
+
+}
+
+/*==============================================================================
+    The Left Side Preview styles
+===============================================================================*/
+
+#preview {
+    text-align: center;
+    padding: 0 20px 0 0;
+    margin: 0 0 0 0;
+}
+#preview p {
+    text-align: left;
+}
+
+#preview strong {
+    color: #0066cc;
+}
+
+#copyright p {
+    padding: 10px 25px;
+}
+
+
+
+/*================================================================================
+Validation colors
+=================================================================================*/
+
+
+.ng-invalid.ng-dirty {
+    border-color: #fa787e;
+    
+}
+.ng-valid.ng-dirty {
+    border-color: #78fa89;
+}
+
+/*=================================================================================
+Movie description
+=================================================================================*/
+
+#description {
+    color: #fff;
+    padding: 15px 15px;
+    border: 2px solid #fff;
+    background-color: #333;
+    border-radius: 20px;
+    width: 500px;
+    height: auto;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    z-index: 1000;
+    text-align: left;
+}
+
+/*=====================================================================================
+CUSTOM MEDIA QUERY
+======================================================================================*/
+
+@media only screen and (max-width: 600px) {
+    #preview {
+        width: 100%;
+    }
+    
+    #movieform {
+        width: 100%;
+    }
+    
+    #movieselect {
+        width: 100%;
+    }
+    
+    #description {
+        position: absolute;
+        top: 70%;
+        left: 0px;
+        width: 100%;
+    }
+    
+}
+
+@media only screen and (max-width: 700px) {
+    #movieform {
+        width: 100%;
+    }
+}
